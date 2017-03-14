@@ -7,7 +7,7 @@
 Summary:       Check if a string has ANSI escape codes
 Name:          %{?scl_prefix}nodejs-%{npm_name}
 Version:       2.0.0
-Release:       6%{?dist}
+Release:       7%{?dist}
 License:       MIT
 URL:           https://github.com/sindresorhus/has-ansi
 Source0:       http://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
@@ -27,11 +27,16 @@ Check if a string has ANSI escape codes
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pr index.js package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
+%nodejs_symlink_deps
+
 %files
 %doc license readme.md
 %{nodejs_sitelib}/%{npm_name}
 
 %changelog
+* Wed Mar 08 2017 Zuzana Svetlikova <zsvetlik@redhat.com> - 2.0.0-7
+- Add symlink macro
+
 * Tue Feb 16 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 2.0.0-6
 - Use macro in -runtime dependency
 
